@@ -16,6 +16,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
+    "localforage": "^1.7.2",
     "prop-types": "^15.6.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",

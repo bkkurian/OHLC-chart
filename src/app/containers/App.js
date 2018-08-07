@@ -1,6 +1,5 @@
 import React from "react";
 import {connect} from "react-redux";
-
 import  Sidebar  from "../components/Sidebar";
 import  {Main}  from "../components/Main";
 import { setSelectedStock } from "../actions/sidebarActions";
@@ -8,8 +7,13 @@ import { setSelectedStock } from "../actions/sidebarActions";
 class App extends React.Component {
     
     handleStock = (stock) => {
+        sessionStorage.setItem('stockName', stock)
         this.props.setSelectedStock(stock)
     }
+    componentWillMount(){
+        if(sessionStorage.getItem('stockName'))
+            this.props.setSelectedStock(sessionStorage.getItem('stockName'))
+      }
 
     render() {
         return (

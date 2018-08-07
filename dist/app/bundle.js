@@ -24542,11 +24542,20 @@
 	        }
 	
 	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.handleStock = function (stock) {
+	            localforage.setItem('stockName', stock);
 	            _this.props.setSelectedStock(stock);
 	        }, _temp), _possibleConstructorReturn(_this, _ret);
 	    }
 	
 	    _createClass(App, [{
+	        key: "componentWillMount",
+	        value: function componentWillMount() {
+	            localforage.getItem('stockName', function (err, value) {
+	                console.log("inside", value);
+	                this.props.setSelectedStock(value);
+	            });
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
